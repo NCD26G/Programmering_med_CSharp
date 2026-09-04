@@ -16,65 +16,76 @@ class Program
         Console.WriteLine("För att avsluta tryck på tangenten 'x'");
         Console.WriteLine("--------------------------------------------------");
 
-        while (true)
+        try
         {
-            var key = Console.ReadLine();
-
-            if (string.IsNullOrWhiteSpace(key) || key == "x")
+            while (true)
             {
-                Environment.Exit(0);
-            }
+                var key = Console.ReadLine();
 
-            switch (key)
-            {
-                case "b":
-                    DisplayBalance();
-                    break;
-                case "t":
-                    DisplayTransactions();
-                    break;
-                case "d":
-                    Console.WriteLine("Hur mycket vill du sätta in?");
-                    var amount = Console.ReadLine();
-
-                    if (string.IsNullOrWhiteSpace(amount))
-                    {
-                        Console.WriteLine("Du måste ange ett heltalsvärde");
-                        Environment.Exit(0);
-                    }
-
-                    if (int.TryParse(amount, out int result))
-                    {
-                        Deposit(result);
-                    }
-                    else
-                    {
-                        Console.WriteLine("Du måste ange ett heltalsvärde för att jag ska kunna förstå!");
-                    }
-                    break;
-                case "w":
-                    Console.WriteLine("Hur mycket vill du ta ut?");
-                    amount = Console.ReadLine();
-
-                    if (string.IsNullOrWhiteSpace(amount))
-                    {
-                        Console.WriteLine("Du måste ange ett heltalsvärde");
-                        Environment.Exit(0);
-                    }
-
-                    if (int.TryParse(amount, out int value))
-                    {
-                        WithDraw(value);
-                    }
-                    else
-                    {
-                        Console.WriteLine("Du måste ange ett heltalsvärde för att jag ska kunna förstå!");
-                    }
-                    break;
-                default:
+                if (string.IsNullOrWhiteSpace(key) || key == "x")
+                {
                     Environment.Exit(0);
-                    break;
+                }
+
+                switch (key)
+                {
+                    case "b":
+                        DisplayBalance();
+                        break;
+                    case "t":
+                        DisplayTransactions();
+                        break;
+                    case "d":
+                        Console.WriteLine("Hur mycket vill du sätta in?");
+                        var amount = Console.ReadLine();
+
+                        if (string.IsNullOrWhiteSpace(amount))
+                        {
+                            Console.WriteLine("Du måste ange ett heltalsvärde");
+                            Environment.Exit(0);
+                        }
+
+                        if (int.TryParse(amount, out int result))
+                        {
+                            Deposit(result);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Du måste ange ett heltalsvärde för att jag ska kunna förstå!");
+                        }
+                        break;
+                    case "w":
+                        Console.WriteLine("Hur mycket vill du ta ut?");
+                        amount = Console.ReadLine();
+
+                        if (string.IsNullOrWhiteSpace(amount))
+                        {
+                            Console.WriteLine("Du måste ange ett heltalsvärde");
+                            Environment.Exit(0);
+                        }
+
+                        if (int.TryParse(amount, out int value))
+                        {
+                            WithDraw(value);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Du måste ange ett heltalsvärde för att jag ska kunna förstå!");
+                        }
+                        break;
+                    default:
+                        Environment.Exit(0);
+                        break;
+                }
             }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+        finally
+        {
+            Console.WriteLine("Klar för idag, nu är det fredag!");
         }
     }
 
@@ -99,7 +110,14 @@ class Program
 
     static void WithDraw(int amount)
     {
-        balance -= amount;
-        transactions.Add($"Transaktionsdatum: {DateTime.Now} - Transaktionsvärdet: {amount}");
+        if (balance > amount)
+        {
+            balance -= amount;
+            transactions.Add($"Transaktionsdatum: {DateTime.Now} - Transaktionsvärdet: {amount}");
+        }
+        else
+        {
+            throw new Exception($"Du har endast {balance} - räcker inte för att ta ut {amount}");
+        }
     }
 }
