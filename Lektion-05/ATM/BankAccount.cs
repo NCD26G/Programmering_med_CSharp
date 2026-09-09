@@ -1,28 +1,41 @@
 namespace WestcoastBank;
 
-class Account
+enum TransactionTypeEnum
 {
-    public int balance;
+    Insättning,
+    Uttag
+}
+
+class Account(string accountNo)
+{
+    private int _balance;
+    public string accountNumber = accountNo;
+    public string firstName = "";
+    public string lastName = "";
     public List<Transaction> transactions = [];
 
+    public int GetBalance()
+    {
+        return _balance;
+    }
     public void Deposit(int amount)
     {
-        balance += amount;
-        AddTransaction(amount, "Insättning");
+        _balance += amount;
+        AddTransaction(amount, TransactionTypeEnum.Insättning);
     }
 
     public void WithDraw(int amount)
     {
-        if (balance < amount)
+        if (_balance < amount)
         {
             throw new Exception("Du har inte tillräckligt på kontot");
         }
-        balance -= amount;
+        _balance -= amount;
 
-        AddTransaction(amount, "Uttag");
+        AddTransaction(amount, TransactionTypeEnum.Uttag);
     }
 
-    void AddTransaction(int amount, string type)
+    void AddTransaction(int amount, TransactionTypeEnum type)
     {
         var tran = new Transaction();
         tran.transactionDate = DateTime.Now;
@@ -35,7 +48,7 @@ class Account
 class Transaction
 {
     public DateTime transactionDate;
-    public string transactionType;
+    public TransactionTypeEnum transactionType;
     public int transactionAmount;
 
     public string GetTransactionInfo()

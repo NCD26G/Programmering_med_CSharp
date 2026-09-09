@@ -4,7 +4,7 @@ namespace ATM;
 
 class Program
 {
-    static Account account = new Account();
+    static Account account = new Account("1234-5678");
     static void Main()
     {
         // Här är vår enkla meny...
@@ -101,7 +101,7 @@ class Program
     }
     static void DisplayBalance()
     {
-        Console.WriteLine($"Ditt nuvarande saldo: {account.balance}");
+        Console.WriteLine($"Ditt nuvarande saldo: {account.GetBalance()}");
     }
 
     static void DisplayTransactions()
