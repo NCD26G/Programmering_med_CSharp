@@ -1,17 +1,10 @@
-﻿namespace ATM;
+﻿using WestcoastBank;
 
-record Transaction
-{
-    public DateTime transactionDate;
-    public string transactionType;
-    public int transactionAmount;
-}
+namespace ATM;
 
 class Program
 {
-    static int balance = 0;
-    static List<Transaction> transactions = [];
-
+    static Account account = new Account();
     static void Main()
     {
         // Här är vår enkla meny...
@@ -97,45 +90,25 @@ class Program
         }
     }
 
-    static void Deposit(int amount) // Header - Definition
-    { // Body...
-        balance += amount;
-        AddTransaction(amount, "Insättning");
+    static void Deposit(int amount)
+    {
+        account.Deposit(amount);
     }
 
     static void WithDraw(int amount)
     {
-        if (balance > amount)
-        {
-            balance -= amount;
-            AddTransaction(amount, "Uttag");
-        }
-        else
-        {
-            throw new Exception($"Du har endast {balance} - räcker inte för att ta ut {amount}");
-        }
+        account.WithDraw(amount);
     }
     static void DisplayBalance()
     {
-        Console.WriteLine($"Ditt nuvarande saldo: {balance}");
+        Console.WriteLine($"Ditt nuvarande saldo: {account.balance}");
     }
 
     static void DisplayTransactions()
     {
-        foreach (var tran in transactions)
+        foreach (var tran in account.transactions)
         {
-            Console.WriteLine(tran);
+            Console.WriteLine(tran.GetTransactionInfo());
         }
-    }
-
-
-
-    static void AddTransaction(int amount, string trxType)
-    {
-        var tran = new Transaction();
-        tran.transactionDate = DateTime.Now;
-        tran.transactionType = trxType;
-        tran.transactionAmount = amount;
-        transactions.Add(tran);
     }
 }
