@@ -113,7 +113,7 @@ class Program
     {
         foreach (var tran in account.Transactions)
         {
-            Console.WriteLine(tran.GetTransactionInfo());
+            Console.WriteLine(tran.ToString());
         }
     }
 }
