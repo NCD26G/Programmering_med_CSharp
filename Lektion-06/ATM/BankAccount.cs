@@ -1,5 +1,3 @@
-using System.Reflection.Emit;
-
 namespace WestcoastBank;
 
 enum TransactionTypeEnum
@@ -10,21 +8,44 @@ enum TransactionTypeEnum
 
 class Account
 {
-    public int balance;
-    public readonly string accountNumber;
-    public string? firstName;
-    public string? lastName;
-    public List<Transaction> transactions = [];
+    private int balance;
+    private readonly string accountNumber;
+    private string? firstName;
+    private string? lastName;
+    private List<Transaction> transactions = [];
+
+    public string AccountNumber
+    {
+        get { return accountNumber; }
+    }
+
+    public int Balance
+    {
+        get { return balance; }
+    }
+
+    public string FirstName
+    {
+        get { return firstName ?? ""; }
+        set { firstName = value; }
+    }
+
+    public string LastName
+    {
+        get { return lastName ?? ""; }
+        set { lastName = value; }
+    }
+
+    public List<Transaction> Transactions
+    {
+        get { return transactions; }
+    }
 
     public Account(string accountNo)
     {
         accountNumber = accountNo;
     }
 
-    public int GetBalance()
-    {
-        return balance;
-    }
     public void Deposit(int amount)
     {
         balance += amount;

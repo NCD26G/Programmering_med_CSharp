@@ -11,7 +11,7 @@ class Program
 
     static void Main()
     {
-        string accountNo = account.accountNumber;
+        account.FirstName = "Michael";
         // Här är vår enkla meny...
         Console.WriteLine("--------------------------------------------------");
         Console.WriteLine("För att sätta in tryck på tangenten 'd'");
@@ -106,12 +106,12 @@ class Program
     }
     static void DisplayBalance()
     {
-        Console.WriteLine($"Ditt nuvarande saldo: {account.GetBalance()}");
+        Console.WriteLine($"Ditt nuvarande saldo: {account.Balance}");
     }
 
     static void DisplayTransactions()
     {
-        foreach (var tran in account.transactions)
+        foreach (var tran in account.Transactions)
         {
             Console.WriteLine(tran.GetTransactionInfo());
         }
