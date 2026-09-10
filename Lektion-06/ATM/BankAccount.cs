@@ -1,3 +1,5 @@
+using System.Reflection.Emit;
+
 namespace WestcoastBank;
 
 enum TransactionTypeEnum
@@ -8,10 +10,10 @@ enum TransactionTypeEnum
 
 class Account
 {
-    private int _balance;
-    public string accountNumber;
-    public string firstName = "";
-    public string lastName = "";
+    public int balance;
+    public readonly string accountNumber;
+    public string? firstName;
+    public string? lastName;
     public List<Transaction> transactions = [];
 
     public Account(string accountNo)
@@ -19,40 +21,49 @@ class Account
         accountNumber = accountNo;
     }
 
-    public Account(string accountNo, string firstName, string lastName)
-    {
-        accountNumber = accountNo;
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
-
     public int GetBalance()
     {
-        return _balance;
+        return balance;
     }
     public void Deposit(int amount)
     {
-        _balance += amount;
+        balance += amount;
         AddTransaction(amount, TransactionTypeEnum.Insättning);
     }
 
     public void WithDraw(int amount)
     {
-        if (_balance < amount)
+        if (balance < amount)
         {
             throw new Exception("Du har inte tillräckligt på kontot");
         }
-        _balance -= amount;
+        balance -= amount;
 
         AddTransaction(amount, TransactionTypeEnum.Uttag);
     }
 
     void AddTransaction(int amount, TransactionTypeEnum type)
     {
-        var tran = new Transaction();
-        tran.transactionDate = DateTime.Now;
-        tran.transactionType = type;
-        tran.transactionAmount = amount;
+        // Objekt initiering version 2.
+        Transaction tran = new()
+        {
+            transactionDate = DateTime.Now,
+            transactionAmount = amount,
+            transactionType = type
+        };
+
+        // Objekt initiering version 1.
+        // var tran = new Transaction
+        // {
+        //     transactionDate = DateTime.Now,
+        //     transactionAmount = amount,
+        //     transactionType = type
+        // };
+
+        // var tran = new Transaction();
+        // tran.transactionDate = DateTime.Now;
+        // tran.transactionType = type;
+        // tran.transactionAmount = amount;
         transactions.Add(tran);
     }
 }

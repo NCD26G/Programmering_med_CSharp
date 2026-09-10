@@ -4,9 +4,14 @@ namespace ATM;
 
 class Program
 {
-    static Account account = new Account("1234-5678");
+    // static Account account = new Account("1234-5678");
+    static Account account = new("1234-5678") { };
+
+    // static Account account = new() { accountNumber = "1234-5678" };
+
     static void Main()
     {
+        string accountNo = account.accountNumber;
         // Här är vår enkla meny...
         Console.WriteLine("--------------------------------------------------");
         Console.WriteLine("För att sätta in tryck på tangenten 'd'");
