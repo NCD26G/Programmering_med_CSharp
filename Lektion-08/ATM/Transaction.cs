@@ -1,4 +1,4 @@
-namespace WestcoastBank;
+﻿namespace WestcoastBank;
 
 public class Transaction
 {

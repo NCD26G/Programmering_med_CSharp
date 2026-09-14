@@ -1,16 +1,14 @@
-namespace WestcoastBank;
+﻿namespace WestcoastBank;
 
-
-
-public class Account(string accountNo)
+public class Account(string accountNumber, string firstName, string lastName)
 {
-    public virtual int Balance { get; private set; }
-    public string AccountNumber { get; } = accountNo;
-    public string? FirstName { get; set; }
-    public string? LastName { get; set; }
+
+    public virtual int Balance { get; set; }
+    public string AccountNumber { get; } = accountNumber;
+    public Customer Customer { get; set; } = new() { FirstName = firstName, LastName = lastName };
     public List<Transaction> Transactions { get; } = [];
 
-    public void Deposit(int amount)
+    public virtual void Deposit(int amount)
     {
         Balance += amount;
         AddTransaction(amount, TransactionTypeEnum.Insättning);
@@ -27,7 +25,7 @@ public class Account(string accountNo)
         AddTransaction(amount, TransactionTypeEnum.Uttag);
     }
 
-    private void AddTransaction(int amount, TransactionTypeEnum type)
+    protected void AddTransaction(int amount, TransactionTypeEnum type)
     {
         Transaction tran = new()
         {
@@ -37,4 +35,3 @@ public class Account(string accountNo)
         Transactions.Add(tran);
     }
 }
-
