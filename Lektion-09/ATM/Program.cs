@@ -2,8 +2,8 @@
 
 class Program
 {
-    static Account account_1 = new("1111-5678", "Eva", "Nilsson");
-    static SavingsAccount account_2 = new("1111-5678", "Eva", "Nilsson");
+    static Account account_1 = new("1111-5678");
+    static SavingsAccount account_2 = new("1111-5678");
     static List<Account> accounts = [];
 
     static void Main()

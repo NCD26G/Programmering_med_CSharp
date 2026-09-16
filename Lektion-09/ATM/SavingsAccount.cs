@@ -1,7 +1,7 @@
 ﻿namespace WestcoastBank;
 
-public class SavingsAccount(string accountNo, string fName, string lName)
-    : Account(accountNo, fName, lName)
+public class SavingsAccount(string accountNo)
+    : Account(accountNo)
 {
     const double INTEREST_RATE = 0.05;
     public override int Balance =>

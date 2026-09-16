@@ -1,18 +1,18 @@
 ﻿namespace WestcoastBank;
 
-public class Account(string accNo, string fName, string lName)
-    : BaseAccount(accNo, fName, lName)
+public class Account(string accNo) : IBaseAccount, IAccountProps
 {
-    public override int Balance { get; set; }
-    public override string AccountNumber => throw new NotImplementedException();
-    public override List<Transaction> Transactions => throw new NotImplementedException();
-    public override void Deposit(int amount)
+    public virtual int Balance { get; private set; }
+    public string AccountNumber => accNo;
+    public List<Transaction> Transactions => [];
+
+    public void Deposit(int amount)
     {
         Balance += amount;
         AddTransaction(amount, TransactionTypeEnum.Insättning);
     }
 
-    public override void WithDraw(int amount)
+    public void WithDraw(int amount)
     {
         if (Balance < amount)
         {
@@ -22,7 +22,8 @@ public class Account(string accNo, string fName, string lName)
 
         AddTransaction(amount, TransactionTypeEnum.Uttag);
     }
-    protected override void AddTransaction(int amount, TransactionTypeEnum type)
+
+    public void AddTransaction(int amount, TransactionTypeEnum type)
     {
         Transaction tran = new()
         {
