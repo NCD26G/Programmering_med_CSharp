@@ -1,6 +1,4 @@
-﻿using WestcoastBank;
-
-namespace ATM;
+﻿namespace WestcoastBank;
 
 class Program
 {
