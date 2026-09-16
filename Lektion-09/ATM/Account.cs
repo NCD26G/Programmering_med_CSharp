@@ -3,6 +3,9 @@
 public class Account(string accNo, string fName, string lName)
     : BaseAccount(accNo, fName, lName)
 {
+    public override int Balance { get; set; }
+    public override string AccountNumber => throw new NotImplementedException();
+    public override List<Transaction> Transactions => throw new NotImplementedException();
     public override void Deposit(int amount)
     {
         Balance += amount;
