@@ -16,3 +16,5 @@
 # Uppgift 6.
 
 - I listningen så ska ni presentera Tillverkare och Modell utskriften.
+
+# Övning inför onsdagens lektion 23/9.

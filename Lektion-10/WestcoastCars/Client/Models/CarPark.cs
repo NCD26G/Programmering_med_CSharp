@@ -2,6 +2,5 @@
 
 public class CarPark
 {
-    // Aggregation...
-    public List<Vehicle> Vehicles { get; set; } = [];
+    public List<Vehicle> Vehicles { get; set; } = []; // Aggregation...
 }

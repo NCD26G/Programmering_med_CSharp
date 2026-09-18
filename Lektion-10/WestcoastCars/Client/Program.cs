@@ -1,4 +1,5 @@
 ﻿
+using System.Runtime.Intrinsics.Arm;
 using Client.Models;
 
 namespace Client;
@@ -7,33 +8,22 @@ class Program
 {
     static void Main()
     {
-        CarPark carPark = new() { };
-
-        carPark.Vehicles.Add(new Vehicle("Volvo", "V60") { ModelYear = 2022 });
-        carPark.Vehicles.Add(new Vehicle("Ford", "Fusion"));
-        carPark.Vehicles.Add(new Vehicle("Fiat", "Uno"));
-
-        // Vehicle bmw = new("BMW", "i4")
-        // {
-        //     ModelYear = 2022
-        // };
-
-
-        // CarPark carPark = new();
-
-        // Vehicle volvo = new("Volvo", "XC60");
-        // Vehicle ford = new("Ford", "Mustang MACH-E");
-        // Vehicle fiat = new("Fiat", "Uno");
-
-        // carPark.Vehicles.Add(volvo);
-        // carPark.Vehicles.Add(ford);
-        // carPark.Vehicles.Add(fiat);
-
-        foreach (var vehicle in carPark.Vehicles)
+        Car volvo = new("Volvo", "XC90", "ABC123")
         {
-            // Console.WriteLine($"Tillverkare: {vehicle.Manufacturer} - Modell: {vehicle.Model}");
-            Console.WriteLine(vehicle.ToString());
-            // Console.WriteLine($"{vehicle} - Modell år: {vehicle.ModelYear}");
+            Color = "Black",
+            Mileage = 105000,
+            Engine = new Engine { FuelType = "Diesel", HorsePower = 200, Volume = 2.0 }
+        };
+
+        CarPark carPark = new CarPark();
+        carPark.Vehicles.Add(volvo);
+
+        Console.WriteLine(volvo.ToString());
+        Console.WriteLine("---------------------------------------------------------");
+
+        foreach (var item in carPark.Vehicles)
+        {
+            Console.WriteLine(item);
         }
     }
 }
