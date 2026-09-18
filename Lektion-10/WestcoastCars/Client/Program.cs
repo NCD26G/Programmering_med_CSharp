@@ -7,10 +7,10 @@ class Program
 {
     static void Main()
     {
-        CarPark carPark = new CarPark();
+        CarPark carPark = new();
 
-        Vehicle volvo = new Vehicle("Volvo", "XC60");
-        var ford = new Vehicle("Ford", "Mustang MACH-E");
+        Vehicle volvo = new("Volvo", "XC60");
+        Vehicle ford = new("Ford", "Mustang MACH-E");
         Vehicle fiat = new("Fiat", "Uno");
 
         carPark.Vehicles.Add(volvo);
