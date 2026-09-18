@@ -34,4 +34,11 @@ public class Vehicle
         set { _modelYear = value; }
     }
 
+    // Constructors
+    public Vehicle(string manufacturer, string model)
+    {
+        _manufacturer = manufacturer;
+        _model = model;
+    }
+
 }

@@ -9,14 +9,10 @@ class Program
     {
         // Korrekt syntax för att instansiera ett objekt...
         // volvo är ett objekt av typen Vehicle...
-        Vehicle volvo = new Vehicle();
-        volvo.Manufacturer = "Volvo"; // Anrop sker nu till set i egenskapen
-        volvo.Model = "EX30";
+        Vehicle volvo = new Vehicle("Volvo", "EX30");
         volvo.ModelYear = 2026;
 
-        Vehicle ford = new Vehicle();
-        ford.Manufacturer = "Ford";
-        ford.Model = "Fusion";
+        Vehicle ford = new Vehicle("Ford", "Fusion");
         ford.ModelYear = 2005;
 
         string model = volvo.Model; // Anrop sker nu till get i egenskapen
