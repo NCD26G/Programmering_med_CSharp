@@ -1,30 +1,31 @@
-﻿namespace Client;
+﻿
+using Client.Models;
+
+namespace Client;
 
 class Program
 {
-    // Skapa en array som lagrar 3 strängar(tillverkare av bilar)
     static void Main()
     {
-        // Deklarerat en variabel
-        List<string> vehicles = ["Volvo", "Ford", "Fiat"];
+        // Korrekt syntax för att instansiera ett objekt...
+        // volvo är ett objekt av typen Vehicle...
+        Vehicle volvo = new Vehicle();
+        volvo.Manufacturer = "Volvo"; // Anrop sker nu till set i egenskapen
+        volvo.Model = "EX30";
+        volvo.ModelYear = 2026;
 
-        Console.WriteLine(vehicles[1]);
-        // Ändra Ford till Volkswagen
-        vehicles[1] = "Volkswagen";
-        Console.WriteLine(vehicles[1]);
+        Vehicle ford = new Vehicle();
+        ford.Manufacturer = "Ford";
+        ford.Model = "Fusion";
+        ford.ModelYear = 2005;
 
-        for (int i = 0; i < vehicles.Count; i++) // 0 => 1 => 2
-        {
-            Console.WriteLine(vehicles[i]);
-        }
+        string model = volvo.Model; // Anrop sker nu till get i egenskapen
+        Console.WriteLine(volvo.Manufacturer); // Anrop sker nu till get i egenskapen
+        Console.WriteLine(volvo.Model); // Anrop sker nu till get i egenskapen
+        Console.WriteLine(volvo.ModelYear); // Anrop sker nu till get i egenskapen
 
-        Console.WriteLine("==============================");
-        // Lägg till en ny tillverkare...
-        vehicles.Add("Mercedes");
-
-        foreach (var vehicle in vehicles)
-        {
-            Console.WriteLine(vehicle);
-        }
+        Console.WriteLine(ford.Manufacturer); // Anrop sker nu till get i egenskapen
+        Console.WriteLine(ford.Model); // Anrop sker nu till get i egenskapen
+        Console.WriteLine(ford.ModelYear); // Anrop sker nu till get i egenskapen
     }
 }
