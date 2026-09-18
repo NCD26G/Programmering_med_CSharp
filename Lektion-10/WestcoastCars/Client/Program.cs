@@ -19,7 +19,9 @@ class Program
 
         foreach (var vehicle in carPark.Vehicles)
         {
-            Console.WriteLine(vehicle);
+            // Console.WriteLine($"Tillverkare: {vehicle.Manufacturer} - Modell: {vehicle.Model}");
+            Console.WriteLine(vehicle.ToString());
+            // Console.WriteLine($"{vehicle} - Modell år: {vehicle.ModelYear}");
         }
     }
 }
