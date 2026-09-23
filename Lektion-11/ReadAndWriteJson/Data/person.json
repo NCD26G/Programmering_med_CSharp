@@ -1,0 +1,9 @@
+{
+  "firstName": "Erik",
+  "lastName": "Eriksson",
+  "address": {
+    "addressLine": "Gatan 1",
+    "postalCode": "123 45",
+    "city": "Staden"
+  }
+}
