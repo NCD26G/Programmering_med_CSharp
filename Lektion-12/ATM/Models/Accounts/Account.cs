@@ -1,5 +1,6 @@
 ﻿using WestcoastBank.Enums;
 using WestcoastBank.Interfaces;
+using WestcoastBank.Models.Customers;
 using WestcoastBank.Models.Persistance;
 
 namespace WestcoastBank.Models.Account;
@@ -17,8 +18,9 @@ public class Account : IBaseAccount
     // Old fashion constructor
     public Account(string accNo)
     {
+        CheckIfPathExists();
         AccountNumber = accNo;
-        _transactionList = Storage.ReadFromJson(_path);
+        _transactionList = Storage<Transaction>.ReadFromJson(_path);
         CalculateBalance();
     }
 
@@ -48,7 +50,7 @@ public class Account : IBaseAccount
         };
         _transactionList.Add(tran);
 
-        Storage.WriteToJson(_transactionList, _path);
+        Storage<Transaction>.WriteToJson(_transactionList, _path);
     }
 
     private void CalculateBalance()
@@ -58,5 +60,21 @@ public class Account : IBaseAccount
         // {
         //     Balance += trx.TransactionAmount;
         // }
+    }
+
+    private void CheckIfPathExists()
+    {
+        // Finns katalogen?
+        if (!Directory.Exists(Environment.CurrentDirectory + "/Data"))
+        {
+            Directory.CreateDirectory(Environment.CurrentDirectory + "/Data");
+        }
+
+        // Finns filen?
+        if (!File.Exists(_path))
+        {
+            using StreamWriter sw = new(_path);
+            sw.Close();
+        }
     }
 }
