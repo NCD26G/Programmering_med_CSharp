@@ -1,4 +1,5 @@
 ﻿using WestcoastBank.Models;
+using WestcoastBank.Models.Account;
 
 namespace WestcoastBank;
 

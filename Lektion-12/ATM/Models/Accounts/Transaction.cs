@@ -1,4 +1,6 @@
-﻿namespace WestcoastBank.Models;
+﻿using WestcoastBank.Enums;
+
+namespace WestcoastBank.Models.Account;
 
 public class Transaction
 {

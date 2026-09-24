@@ -1,4 +1,4 @@
-﻿namespace WestcoastBank.Models;
+﻿namespace WestcoastBank.Models.Customers;
 
 public class Address
 {

@@ -1,6 +1,8 @@
 ﻿using WestcoastBank.Enums;
+using WestcoastBank.Interfaces;
+using WestcoastBank.Models.Persistance;
 
-namespace WestcoastBank.Models;
+namespace WestcoastBank.Models.Account;
 
 public class Account : IBaseAccount
 {
@@ -17,6 +19,7 @@ public class Account : IBaseAccount
     {
         AccountNumber = accNo;
         _transactionList = Storage.ReadFromJson(_path);
+        CalculateBalance();
     }
 
     public void Deposit(int amount)
@@ -33,7 +36,7 @@ public class Account : IBaseAccount
         }
         Balance -= amount;
 
-        AddTransaction(amount, TransactionTypeEnum.Uttag);
+        AddTransaction(0 - amount, TransactionTypeEnum.Uttag);
     }
 
     public void AddTransaction(int amount, TransactionTypeEnum type)
@@ -46,5 +49,14 @@ public class Account : IBaseAccount
         _transactionList.Add(tran);
 
         Storage.WriteToJson(_transactionList, _path);
+    }
+
+    private void CalculateBalance()
+    {
+        Balance = _transactionList.Sum(c => c.TransactionAmount);
+        // foreach (Transaction trx in _transactionList)
+        // {
+        //     Balance += trx.TransactionAmount;
+        // }
     }
 }

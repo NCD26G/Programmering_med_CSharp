@@ -1,7 +1,8 @@
 ﻿using System.Text.Encodings.Web;
 using System.Text.Json;
+using WestcoastBank.Models.Account;
 
-namespace WestcoastBank.Models;
+namespace WestcoastBank.Models.Persistance;
 
 public class Storage
 {

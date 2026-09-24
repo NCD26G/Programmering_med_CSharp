@@ -1,6 +1,7 @@
 ﻿using WestcoastBank.Enums;
+using WestcoastBank.Models.Account;
 
-namespace WestcoastBank.Models;
+namespace WestcoastBank.Interfaces;
 
 public interface IBaseAccount
 {
