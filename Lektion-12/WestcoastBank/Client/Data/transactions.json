@@ -1,0 +1,17 @@
+[
+  {
+    "transactionDate": "2026-09-24T14:49:20.958321+02:00",
+    "transactionType": 0,
+    "transactionAmount": 100
+  },
+  {
+    "transactionDate": "2026-09-24T14:49:32.148555+02:00",
+    "transactionType": 0,
+    "transactionAmount": 500
+  },
+  {
+    "transactionDate": "2026-09-24T14:49:36.473684+02:00",
+    "transactionType": 1,
+    "transactionAmount": -350
+  }
+]
