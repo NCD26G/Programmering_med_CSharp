@@ -1,5 +1,6 @@
 ﻿using System.Text.Encodings.Web;
 using System.Text.Json;
+using Core.Models;
 
 namespace Core.Persistance;
 
@@ -10,7 +11,8 @@ public class Storage<T>
     {
         PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
         Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
-        WriteIndented = true
+        WriteIndented = true,
+        PropertyNameCaseInsensitive = true
     };
     public static List<T>Read(string path)
     {
@@ -20,7 +22,7 @@ public class Storage<T>
             // Kontrollera så att innehållet i filen är json format...
             if(!string.IsNullOrEmpty(data) || !string.IsNullOrWhiteSpace(data))
             {
-                return JsonSerializer.Deserialize<List<T>>(data,_options) ?? [];
+                return JsonSerializer.Deserialize<List<T>>(data,_options)!;
             }
             else
             {

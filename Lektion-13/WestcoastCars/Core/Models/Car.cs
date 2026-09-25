@@ -1,17 +1,23 @@
-﻿namespace Core.Models;
+﻿using Core.Persistance;
 
-public class Car(string make) : Vehicle(make)
-{
+namespace Core.Models;
+
+public class Car : Vehicle
+{    
     public required string RegistrationNumber { get; set; }
     public string? Color { get; set; }
     // Composition
     public required Engine Engine { get; set; }
 
-    public override void Add()
+    public override void Add(Vehicle vehicle)
     {
-        // Vi bestämmer hur en bil ska lagras i json...
-        base.Add();
+        string path = string.Concat(Environment.CurrentDirectory,"/Data/cars.json");
+        
+        var cars = Storage<Car>.Read(path);
+        cars.Add((Car)vehicle);
+        Storage<Car>.Write(cars,path);
     }
+
     public override string ToString()
     {
         return $"{base.ToString()} RegNo: {RegistrationNumber}";
