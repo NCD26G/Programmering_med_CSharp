@@ -6,16 +6,24 @@
         x:Class="Client.MainWindow"
         Title="Westcoast Cars Admin"
         Background="#020618"
-        Foreground="White">
-    <Grid ColumnDefinitions="200,Auto">
-        <StackPanel Spacing="5">
+        Foreground="White"
+        Width="1024"
+        Height="768">
+    <Grid ColumnDefinitions="Auto,*">
+        <StackPanel Spacing="5" Margin="10">
             <TextBlock Text="Admin"/>
-            <Button HorizontalAlignment="Stretch" Foreground="#ffffff" Background="#FF27278C">Fordon</Button>
-            <Button HorizontalAlignment="Stretch" Foreground="#ffffff" Background="#FF27278C">Kunder</Button>
-            <Button HorizontalAlignment="Stretch" Foreground="#ffffff" Background="#FF27278C">Verkstad</Button>
-            <Button HorizontalAlignment="Stretch" Foreground="#ffffff" Background="#FF27278C">Service bokning</Button>
-            <Button HorizontalAlignment="Stretch" Foreground="#ffffff" Background="#FF27278C">Reservdelar</Button>
+            <Button Click="Fordon_Click" HorizontalAlignment="Stretch" Foreground="#ffffff" Background="#FF27278C">Fordon</Button>
+            <Button Click="Customer_Click" HorizontalAlignment="Stretch" Foreground="#ffffff" Background="#FF27278C">Kunder</Button>
+            <Button Click="Shop_Click" HorizontalAlignment="Stretch" Foreground="#ffffff" Background="#FF27278C">Verkstad</Button>
+            <Button Click="Service_Click" HorizontalAlignment="Stretch" Foreground="#ffffff" Background="#FF27278C">Service bokning</Button>
+            <Button Click="Spare_Click" HorizontalAlignment="Stretch" Foreground="#ffffff" Background="#FF27278C">Reservdelar</Button>
+
+            <TextBlock>Inställningar</TextBlock>
         </StackPanel>
-        <TextBlock Grid.Column="1" VerticalAlignment="Center" Text="Jag är i nästa kolumn"/>
+        <StackPanel Grid.Column="1" Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+            <TextBlock Text="Jag är i nästa kolumn"/>
+            <TextBox x:Name="FirstName"></TextBox>
+            <TextBlock Text="{Binding #FirstName.Text}"></TextBlock>
+        </StackPanel>
     </Grid>
 </Window>

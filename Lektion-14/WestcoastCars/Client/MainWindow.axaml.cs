@@ -16,4 +16,25 @@ public partial class MainWindow : Window
         Console.WriteLine("Du klickade på mig!!!");
         Debug.WriteLine("Du klickade på mig via debug!!!");
     }
+
+    private void Fordon_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+    {
+        Console.WriteLine("Klickade på visa fordon");
+    }
+
+    private void Customer_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+    {
+    }
+
+    private void Shop_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+    {
+    }
+
+    private void Service_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+    {
+    }
+
+    private void Spare_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+    {
+    }
 }
