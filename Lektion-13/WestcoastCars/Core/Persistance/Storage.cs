@@ -14,15 +14,15 @@ public class Storage<T>
         WriteIndented = true,
         PropertyNameCaseInsensitive = true
     };
-    public static List<T>Read(string path)
+    public static List<T> Read(string path)
     {
         try
         {
             string data = File.ReadAllText(path);
             // Kontrollera så att innehållet i filen är json format...
-            if(!string.IsNullOrEmpty(data) || !string.IsNullOrWhiteSpace(data))
+            if (!string.IsNullOrEmpty(data) || !string.IsNullOrWhiteSpace(data))
             {
-                return JsonSerializer.Deserialize<List<T>>(data,_options)!;
+                return JsonSerializer.Deserialize<List<T>>(data, _options)!;
             }
             else
             {
@@ -31,15 +31,15 @@ public class Storage<T>
         }
         catch (Exception ex)
         {
-          throw new Exception(ex.Message);
+            throw new Exception(ex.Message);
         }
     }
     public static void Write(List<T> data, string path)
     {
         try
         {
-            string json = JsonSerializer.Serialize(data,_options);
-            File.WriteAllText(path,json);
+            string json = JsonSerializer.Serialize(data, _options);
+            File.WriteAllText(path, json);
         }
         catch (Exception ex)
         {
