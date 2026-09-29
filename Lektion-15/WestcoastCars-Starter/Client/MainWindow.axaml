@@ -1,0 +1,29 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Client.MainWindow"
+        Title="Westcoast Cars Admin"
+        Background="#020618"
+        Foreground="White"
+        Width="1024"
+        Height="768">
+    <Grid ColumnDefinitions="Auto,*">
+        <StackPanel Spacing="5" Margin="10">
+            <TextBlock Text="Admin"/>
+            <Button Click="Fordon_Click" HorizontalAlignment="Stretch" Foreground="#ffffff" Background="#FF27278C">Fordon</Button>
+            <Button Click="Customer_Click" HorizontalAlignment="Stretch" Foreground="#ffffff" Background="#FF27278C">Kunder</Button>
+            <Button Click="Shop_Click" HorizontalAlignment="Stretch" Foreground="#ffffff" Background="#FF27278C">Verkstad</Button>
+            <Button Click="Service_Click" HorizontalAlignment="Stretch" Foreground="#ffffff" Background="#FF27278C">Service bokning</Button>
+            <Button Click="Spare_Click" HorizontalAlignment="Stretch" Foreground="#ffffff" Background="#FF27278C">Reservdelar</Button>
+
+            <TextBlock>Inställningar</TextBlock>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+            <TextBlock Text="Jag är i nästa kolumn"/>
+            <TextBox x:Name="FirstName"></TextBox>
+            <TextBlock Text="{Binding #FirstName.Text}"></TextBlock>
+        </StackPanel>
+    </Grid>
+</Window>
