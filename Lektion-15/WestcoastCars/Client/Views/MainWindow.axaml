@@ -2,6 +2,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="using:Client.ViewModels"
+        x:DataType="vm:MainWindowViewModel"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="Client.MainWindow"
         Title="Westcoast Cars Admin"
@@ -14,8 +16,8 @@
         <Grid RowDefinitions="*,Auto">
             <StackPanel Spacing="5">
                 <TextBlock Text="Admin"/>
-                <Button Name="Vehicle" Click="Vehicle_Click" HorizontalAlignment="Stretch" Foreground="#ffffff" Background="#FF27278C">Fordon</Button>
-                <Button Name="Customer" Click="Customer_Click" HorizontalAlignment="Stretch" Foreground="#ffffff" Background="#FF27278C">Kunder</Button>
+                <Button HorizontalAlignment="Stretch" Foreground="#ffffff" Background="#FF27278C">Fordon</Button>
+                <Button HorizontalAlignment="Stretch" Foreground="#ffffff" Background="#FF27278C">Kunder</Button>
                 <Button HorizontalAlignment="Stretch" Foreground="#ffffff" Background="#FF27278C">Verkstad</Button>
                 <Button HorizontalAlignment="Stretch" Foreground="#ffffff" Background="#FF27278C">Service bokning</Button>
                 <Button HorizontalAlignment="Stretch" Foreground="#ffffff" Background="#FF27278C">Reservdelar</Button>
@@ -24,10 +26,10 @@
         </Grid>
         </Border>
         <StackPanel Grid.Column="1" Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
-            <TextBox x:Name="FirstName"></TextBox>
-            <TextBlock x:Name="Manufacturer" FontSize="30"/>
-            <Button x:Name="ChangeName" Click="ChangeName_Click" Content="Byt namn" Foreground="#ffffff" Background="#FF27278C"/>
-            <TextBlock x:Name="NewName" FontSize="30" Foreground="Yellow" />
+            <TextBox></TextBox>
+            <TextBlock Text="{Binding Manufacturer}" FontSize="30"/>
+            <Button Command="{Binding SayHelloCommand}" Content="Byt namn" Foreground="#ffffff" Background="#FF27278C"/>
+            <TextBlock FontSize="30" Foreground="Yellow" />
         </StackPanel>
     </Grid>
 </Window>
