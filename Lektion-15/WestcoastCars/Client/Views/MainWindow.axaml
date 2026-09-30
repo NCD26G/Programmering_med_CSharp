@@ -29,7 +29,7 @@
             <Button Grid.Row="1" HorizontalAlignment="Stretch" Foreground="#ffffff" Background="#FF27278C" Content="Inställningar" />
         </Grid>
         </Border>
-        <UserControl Grid.Column="1" />
+        <UserControl Padding="20" Content="{Binding CurrentView}" Grid.Column="1" />
         <!-- <StackPanel Grid.Column="1" Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
             <TextBox Text="{Binding Model}"></TextBox>
             <TextBlock Text="{Binding Manufacturer}" FontSize="30"/>

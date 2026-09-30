@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace Client;
+namespace Client.ViewModels;
 
-public class CustomersViewModel
+public partial class CustomersViewModel : ViewModelBase
 {
 
 }

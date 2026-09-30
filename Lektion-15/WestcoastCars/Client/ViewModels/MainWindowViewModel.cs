@@ -6,22 +6,18 @@ namespace Client.ViewModels;
 
 public partial class MainWindowViewModel : ViewModelBase
 {
+    private readonly CustomersViewModel _customersView = new();
+    private readonly VehiclesViewModel _vehiclesView = new();
+
+    [ObservableProperty]
+    private ViewModelBase _currentView;
     [ObservableProperty]
     private string _manufacturer = "Mercedes";
-
     [ObservableProperty]
     private string model = "S500";
 
-    [RelayCommand]
-    private void SayHello()
+    public MainWindowViewModel()
     {
-        Console.WriteLine("Hej på dig du!");
-        Manufacturer = "Fiat";
-        Model = "Uno";
-    }
-
-    private void SayGoodBye()
-    {
-        Console.WriteLine("");
+        _currentView = _vehiclesView;
     }
 }
