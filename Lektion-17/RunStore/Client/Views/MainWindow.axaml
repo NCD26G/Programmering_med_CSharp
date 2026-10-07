@@ -23,15 +23,28 @@
                         <TextBlock VerticalAlignment="Center" Text="RunStore" FontSize="20" Foreground="{DynamicResource PrimaryTextColor}" />
                     </StackPanel>
                     <Button Command="{Binding GoToHomeCommand}" >
-                        <StackPanel Orientation="Horizontal">
-                            <Label FontFamily="{DynamicResource IconFont}" Content="&#xe2c2;" />
+                        <StackPanel Orientation="Horizontal" Spacing="10
+                        ">
+                            <Label Padding="0 6" FontFamily="{DynamicResource IconFont}" Content="&#xe2c2;" />
                             <Label Content="Hem" />
                         </StackPanel>
                     </Button>
                     <Button Command="{Binding GoToProductsCommand}" >
-                        <StackPanel Orientation="Horizontal">
-                            <Label FontFamily="{DynamicResource IconFont}" Content="&#xed60;" />
+                        <StackPanel Orientation="Horizontal" Spacing="10">
+                            <Label Padding="0 6" FontFamily="{DynamicResource IconFont}" Content="&#xed60;" />
                             <Label Content="Produkter" />
+                        </StackPanel>
+                    </Button>
+                    <Button Command="{Binding GoToCustomersCommand}" >
+                        <StackPanel Orientation="Horizontal" Spacing="10">
+                            <Label Padding="0 6" FontFamily="{DynamicResource IconFont}" Content="&#xe4D6;" />
+                            <Label Content="Kunder" />
+                        </StackPanel>
+                    </Button>
+                    <Button Command="{Binding GoToOrdersCommand}" >
+                        <StackPanel Orientation="Horizontal" Spacing="10">
+                            <Label Padding="0 6" FontFamily="{DynamicResource IconFont}" Content="&#xe260;" />
+                            <Label Content="Beställningar" />
                         </StackPanel>
                     </Button>
                 </StackPanel>
