@@ -17,6 +17,7 @@
     </PackageReference>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.2" />
     <AvaloniaResource Include="Assets\**\*" />
+    <AvaloniaXaml Remove="Assets/Styles/MenuButtonStyles.axaml" />
     <PackageReference Include="Svg.Controls.Skia.Avalonia" Version="12.0.0.17" />
   </ItemGroup>
 </Project>

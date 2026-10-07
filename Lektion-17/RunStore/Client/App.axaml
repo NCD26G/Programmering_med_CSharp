@@ -12,6 +12,7 @@
     <Application.Styles>
         <FluentTheme />
         <StyleInclude Source="Assets/Styles/AppStyles.axaml"></StyleInclude>
+        <StyleInclude Source="Assets/Styles/MenuButtonStyles.axaml"></StyleInclude>
     </Application.Styles>
 
     <Application.Resources>
@@ -23,6 +24,8 @@
             <GradientStop Offset="1" Color="#151E3E"/>
         </LinearGradientBrush>
 
+        <FontFamily x:Key="MontserratFont">avares://Client/Assets/Fonts/Montserrat-Regular.ttf#Montserrat</FontFamily>
+        <FontFamily x:Key="CreepsterFont">avares://Client/Assets/Fonts/Creepster-Regular.ttf#Creepster</FontFamily>
         <FontFamily x:Key="IconFont">avares://Client/Assets/Fonts/Phosphor.ttf#Phosphor</FontFamily>
 
     </Application.Resources>
