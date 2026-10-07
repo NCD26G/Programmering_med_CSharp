@@ -18,11 +18,22 @@
                 <StackPanel Grid.Row="0" Spacing="10">
                     <StackPanel Orientation="Horizontal" Spacing="20">
                         <!-- <Image Width="48" Height="48" Source="avares://Client/Assets/Images/runstore.png" /> -->
-                        <Image Width="60" Source="{SvgImage /Assets/Images/runstore.svg}"></Image>
+                        <!-- <Image Width="60" Source="{SvgImage /Assets/Images/runstore.svg}"></Image> -->
+                        <Svg Width="60" Path="/Assets/Images/runstore.svg"></Svg>
                         <TextBlock VerticalAlignment="Center" Text="RunStore" FontSize="20" Foreground="{DynamicResource PrimaryTextColor}" />
                     </StackPanel>
-                    <Button Command="{Binding GoToHomeCommand}" Content="Hem" HorizontalAlignment="Stretch"></Button>
-                    <Button Command="{Binding GoToProductsCommand}"  Content="Produkter" HorizontalAlignment="Stretch"></Button>
+                    <Button Command="{Binding GoToHomeCommand}" HorizontalAlignment="Stretch">
+                        <StackPanel Orientation="Horizontal">
+                            <Label FontFamily="{DynamicResource IconFont}" Content="&#xe2c2;" />
+                            <Label Content="Hem" />
+                        </StackPanel>
+                    </Button>
+                    <Button Command="{Binding GoToProductsCommand}" HorizontalAlignment="Stretch">
+                        <StackPanel Orientation="Horizontal">
+                            <Label FontFamily="{DynamicResource IconFont}" Content="&#xed60;" />
+                            <Label Content="Produkter" />
+                        </StackPanel>
+                    </Button>
                 </StackPanel>
                 <Button Grid.Row="1" Content="Hem" HorizontalAlignment="Stretch"></Button>
             </Grid>

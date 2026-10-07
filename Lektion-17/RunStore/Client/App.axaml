@@ -22,6 +22,9 @@
             <GradientStop Offset="0" Color="#04041F"/>
             <GradientStop Offset="1" Color="#151E3E"/>
         </LinearGradientBrush>
+
+        <FontFamily x:Key="IconFont">avares://Client/Assets/Fonts/Phosphor.ttf#Phosphor</FontFamily>
+
     </Application.Resources>
 
 </Application>
