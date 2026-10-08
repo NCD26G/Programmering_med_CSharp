@@ -5,16 +5,14 @@
              xmlns:vm="using:Client.ViewModels"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Client.Views.ProductsView"
-             x:DataType="vm:ProductsViewModel"
-             Background="{DynamicResource PrimaryBackgroundColor}"
-             Foreground="{DynamicResource PrimaryTextColor}">
+             x:DataType="vm:ProductsViewModel">
 
   <Design.DataContext>
     <vm:ProductsViewModel></vm:ProductsViewModel>
   </Design.DataContext>
 
   <StackPanel>
-    <TextBlock Classes="h1" Text="Våra produkter"/>
+    <TextBlock Classes="pageTitle" Text="Våra produkter"/>
 
     <Border BorderBrush="White" BorderThickness="0 0 0 1" Padding="0 50 0 5">
       <Grid ColumnDefinitions="100,200,200,*" ShowGridLines="False">

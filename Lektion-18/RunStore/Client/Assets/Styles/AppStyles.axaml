@@ -9,11 +9,17 @@
   <!-- Add Styles Here -->
   <Style Selector="Window">
     <Setter Property="FontFamily" Value="{DynamicResource MontserratFont}" />
+    <Setter Property="Foreground" Value="{DynamicResource PrimaryTextColor}" />
+    <Setter Property="Background" Value="{DynamicResource PrimaryBackgroundColor}" />
   </Style>
 
-  <Style Selector="TextBlock.h1">
+  <Style Selector="TextBlock.pageTitle">
     <Setter Property="FontSize" Value="40"/>
     <Setter Property="TextAlignment" Value="Center"/>
+  </Style>
+
+  <Style Selector="Label">
+    <Setter Property="FontSize" Value="20"/>
   </Style>
 
 </Styles>
