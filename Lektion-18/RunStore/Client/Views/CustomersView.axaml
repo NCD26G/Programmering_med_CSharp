@@ -8,5 +8,5 @@
              x:DataType="vm:CustomersViewModel"
              Background="{DynamicResource PrimaryBackgroundColor}">
 
-  <TextBlock Text="{Binding PageTitle}"/>
+  <TextBlock Classes="h1" Text="{Binding PageTitle}"/>
 </UserControl>

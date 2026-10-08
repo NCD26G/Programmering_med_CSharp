@@ -1,7 +1,8 @@
-# Lektion 17
+# Lektion 18
 
 #### Uppgift 1.
-##### Lägg till nya navigeringsalternativ i menyn
-1. Knapp för att visa och lista beställningar.
-2. Knapp för att visa och lista kunder.
-3. Skapa viewmodels och views för att hantera navigeringen
+#### Skapa hantering av kunder
+1. Skapa en klass eller record och lagra information om en kund
+2. Skapa en tjänst(service) som fejkskapar två kunder och returnerar en lista
+3. I ViewModel klassen hämta kunderna skicka dem till axaml filen
+4. Presentera kunderna i axaml.

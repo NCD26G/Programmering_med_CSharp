@@ -2,7 +2,39 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:Client.ViewModels"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="Client.Views.ProductsView">
-  <TextBlock Classes="h1" Text="Våra produkter"/>
+             x:Class="Client.Views.ProductsView"
+             x:DataType="vm:ProductsViewModel"
+             Background="{DynamicResource PrimaryBackgroundColor}"
+             Foreground="{DynamicResource PrimaryTextColor}">
+
+  <Design.DataContext>
+    <vm:ProductsViewModel></vm:ProductsViewModel>
+  </Design.DataContext>
+
+  <StackPanel>
+    <TextBlock Classes="h1" Text="Våra produkter"/>
+
+    <Border BorderBrush="White" BorderThickness="0 0 0 1" Padding="0 50 0 5">
+      <Grid ColumnDefinitions="100,200,200,*" ShowGridLines="False">
+        <Label Content="Artikelnr" />
+        <Label Grid.Column="1" Content="Namn" />
+        <Label Grid.Column="2" Content="Leverantör" />
+        <Label Grid.Column="3" Content="Pris" HorizontalAlignment="Right" />
+      </Grid>
+    </Border>
+    <ItemsControl ItemsSource="{Binding Products}">
+      <ItemsControl.ItemTemplate>
+        <DataTemplate>
+          <Grid ColumnDefinitions="100,200,200,*" ShowGridLines="False">
+            <Label Content="{Binding ItemNumber}" />
+            <Label Grid.Column="1" Content="{Binding Name}" />
+            <Label Grid.Column="2" Content="{Binding SupplierName}" />
+            <Label Grid.Column="3" Content="{Binding Price}" HorizontalAlignment="Right" />
+          </Grid>
+        </DataTemplate>
+      </ItemsControl.ItemTemplate>
+    </ItemsControl>
+  </StackPanel>
 </UserControl>
