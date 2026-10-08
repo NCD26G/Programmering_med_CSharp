@@ -1,0 +1,19 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Design.PreviewWith>
+    <Border Padding="20" Background="{DynamicResource PrimaryBackgroundColor}">
+      <TextBlock Classes="h1" Text="Test Text" Foreground="{DynamicResource PrimaryTextColor}" />
+    </Border>
+  </Design.PreviewWith>
+
+  <!-- Add Styles Here -->
+  <Style Selector="Window">
+    <Setter Property="FontFamily" Value="{DynamicResource MontserratFont}" />
+  </Style>
+
+  <Style Selector="TextBlock.h1">
+    <Setter Property="FontSize" Value="40"/>
+    <Setter Property="TextAlignment" Value="Center"/>
+  </Style>
+
+</Styles>
