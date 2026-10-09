@@ -15,21 +15,25 @@
     <TextBlock Classes="pageTitle" Text="Våra produkter"/>
 
     <Border BorderBrush="White" BorderThickness="0 0 0 1" Padding="0 50 0 5">
-      <Grid ColumnDefinitions="100,200,200,*" ShowGridLines="False">
+      <Grid ColumnDefinitions="100,200,200,*,60,60" ShowGridLines="False">
         <Label Content="Artikelnr" />
         <Label Grid.Column="1" Content="Namn" />
         <Label Grid.Column="2" Content="Leverantör" />
         <Label Grid.Column="3" Content="Pris" HorizontalAlignment="Right" />
+        <Label Grid.Column="4"/>
+        <Label Grid.Column="5"/>
       </Grid>
     </Border>
     <ItemsControl ItemsSource="{Binding Products}">
       <ItemsControl.ItemTemplate>
         <DataTemplate>
-          <Grid ColumnDefinitions="100,200,200,*" ShowGridLines="False">
+          <Grid ColumnDefinitions="100,200,200,*,60,60" ShowGridLines="False">
             <Label Content="{Binding ItemNumber}" />
             <Label Grid.Column="1" Content="{Binding Name}" />
             <Label Grid.Column="2" Content="{Binding SupplierName}" />
             <Label Grid.Column="3" Content="{Binding Price}" HorizontalAlignment="Right" />
+            <Button Grid.Column="4" Command="{Binding Edit}" FontFamily="{DynamicResource IconFont}" Content="&#xebc6;" Foreground="Green" Padding="10 0 0 10"></Button>
+            <Button Grid.Column="5" Command="{Binding Delete}" FontFamily="{DynamicResource IconFont}" Content="&#xe4a6;" Foreground="Red" Padding="10 0 0 10"></Button>
           </Grid>
         </DataTemplate>
       </ItemsControl.ItemTemplate>
