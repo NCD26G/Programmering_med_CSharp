@@ -12,4 +12,14 @@ public class Customer
     public string? AddressLine { get; set; }
     public string? PostalCode { get; set; }
     public string? City { get; set; }
+
+    public void Edit()
+    {
+        Console.WriteLine("Ändra kunduppgifter");
+    }
+
+    public void Delete()
+    {
+        Console.WriteLine("Ta bort kund");
+    }
 }

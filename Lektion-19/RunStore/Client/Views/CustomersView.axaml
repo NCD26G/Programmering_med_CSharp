@@ -15,21 +15,25 @@
     <TextBlock Classes="pageTitle" Text="Våra kunder"/>
 
     <Border BorderBrush="White" BorderThickness="0 0 0 1" Padding="0 50 0 5">
-      <Grid ColumnDefinitions="100,200,200,*" ShowGridLines="False">
+      <Grid ColumnDefinitions="100,200,200,*,Auto,Auto" ShowGridLines="False">
         <Label Content="Kundnr" />
         <Label Grid.Column="1" Content="Förnamn" />
         <Label Grid.Column="2" Content="Efternamn" />
         <Label Grid.Column="3" Content="E-Post" />
+        <Label Grid.Column="4"/>
+        <Label Grid.Column="4"/>
       </Grid>
     </Border>
     <ItemsControl ItemsSource="{Binding Customers}">
       <ItemsControl.ItemTemplate>
         <DataTemplate>
-          <Grid ColumnDefinitions="100,200,200,*" ShowGridLines="False">
+          <Grid ColumnDefinitions="100,200,200,*,Auto,Auto" ShowGridLines="False">
             <Label Content="{Binding Id}" />
             <Label Grid.Column="1" Content="{Binding FirstName}" />
             <Label Grid.Column="2" Content="{Binding LastName}" />
             <Label Grid.Column="3" Content="{Binding Email}" />
+            <Button Grid.Column="4" Command="{Binding Edit}" FontFamily="{DynamicResource IconFont}" Content="&#xebc6;" Foreground="Green" Padding="10 0 0 10"></Button>
+            <Button Grid.Column="5" Command="{Binding Delete}" FontFamily="{DynamicResource IconFont}" Content="&#xe4a6;" Foreground="Red" Padding="10 0 0 10"></Button>
           </Grid>
         </DataTemplate>
       </ItemsControl.ItemTemplate>

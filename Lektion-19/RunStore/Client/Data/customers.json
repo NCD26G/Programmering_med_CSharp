@@ -1,0 +1,52 @@
+[
+  {
+    "id": "6639cea1-10db-416b-9e06-4f75e3b6b7fe",
+    "firstName": "Michael",
+    "lastName": "Gustavsson",
+    "email": "michael@mail.com",
+    "phone": "0701-11 11 11",
+    "addressLine": "Strandvägen 1",
+    "postalCode": "444 12",
+    "city": "Byn"
+  },
+  {
+    "id": "21bcb6b4-3c96-4c59-b833-f5b3fa57f6c5",
+    "firstName": "Oskar",
+    "lastName": "Person",
+    "email": "oskar@mail.com",
+    "phone": "0701-11 11 11",
+    "addressLine": "Strandvägen 2",
+    "postalCode": "444 12",
+    "city": "Byn"
+  },
+  {
+    "id": "3a9410da-f6de-4c17-bc7f-11d16ebd7bf5",
+    "firstName": "Helene",
+    "lastName": "Persson",
+    "email": "helene@mail.com",
+    "phone": "0701-11 11 11",
+    "addressLine": "Strandvägen 3",
+    "postalCode": "444 12",
+    "city": "Byn"
+  },
+  {
+    "id": "a73cfd4d-78c3-4f7e-9f74-1c98f4f889fc",
+    "firstName": "Bosse",
+    "lastName": "Kofot",
+    "email": "bosse@mail.com",
+    "phone": "0701-11 11 11",
+    "addressLine": "Strandvägen 4",
+    "postalCode": "444 12",
+    "city": "Byn"
+  },
+  {
+    "id": "91c8143e-e9c7-498a-b887-57ba29dc8cf3",
+    "firstName": "Lena",
+    "lastName": "Karlsson",
+    "email": "lena@mail.com",
+    "phone": "0701-11 11 11",
+    "addressLine": "Strandvägen 5",
+    "postalCode": "444 12",
+    "city": "Byn"
+  }
+]
