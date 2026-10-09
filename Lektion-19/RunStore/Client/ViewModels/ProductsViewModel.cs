@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using Client.Models;
 using Client.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
@@ -17,6 +18,15 @@ public partial class ProductsViewModel : ViewModelBase
 
     private void LoadProducts()
     {
-        Products = new ObservableCollection<Product>(ProductServices.ListAllProducts());
+        try
+        {
+            Products = new ObservableCollection<Product>(ProductServices.ListAllProducts());
+        }
+        catch (Exception ex)
+        {
+            // Byts ut till en tjusig popup senare...
+            Console.WriteLine(ex.Message);
+        }
+
     }
 }
