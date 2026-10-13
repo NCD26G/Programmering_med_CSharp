@@ -1,10 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Runtime.InteropServices.Java;
 using System.Text.Encodings.Web;
 using System.Text.Json;
-using Avalonia.Media;
 using Client.Interfaces;
 
 namespace Client.Repositories;
