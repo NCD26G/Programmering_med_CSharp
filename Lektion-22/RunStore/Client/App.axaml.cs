@@ -1,6 +1,7 @@
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
+using Client.Helpers;
 using Client.Interfaces;
 using Client.Services;
 using Client.ViewModels;
@@ -21,15 +22,10 @@ public partial class App : Application
         // Skapa en instans ServiceCollection...
         // En lista av beroende som applikation har eller kommer att ha...
         var collection = new ServiceCollection();
-        // Om någon efterfrågar interface IProductService så ger
-        // vi dem en instans av KalleAnka objektet...
-        collection.AddSingleton<MainWindowViewModel>();
-        collection.AddTransient<ProductsViewModel>();
-        collection.AddTransient<IProductService, ProductServices>();
+        collection.AddServices();
 
         // Bygga ihop services
         var serviceProvider = collection.BuildServiceProvider();
-
         var vm = serviceProvider.GetRequiredService<MainWindowViewModel>();
 
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
@@ -38,7 +34,6 @@ public partial class App : Application
             {
                 // Kopplar på vår ViewModel till vår View
                 DataContext = vm
-                // DataContext = new MainWindowViewModel()
             };
         }
 

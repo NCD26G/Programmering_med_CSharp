@@ -6,15 +6,16 @@ namespace Client.ViewModels;
 public partial class MainWindowViewModel : ViewModelBase
 {
 
-    private readonly HomeViewModel _homeView = new();
+    private readonly HomeViewModel _homeView;
     private readonly ProductsViewModel _productsView;
 
     [ObservableProperty]
     public partial ViewModelBase CurrentView { get; set; } = new();
 
-    public MainWindowViewModel(ProductsViewModel productsViewModel)
+    public MainWindowViewModel(ProductsViewModel productsViewModel, HomeViewModel homeViewModel)
     {
         _productsView = productsViewModel;
+        _homeView = homeViewModel;
         GoToHome();
     }
 
