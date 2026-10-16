@@ -1,4 +1,5 @@
 using System;
+using Client.Factories;
 using Client.Interfaces;
 using Client.Services;
 using Client.ViewModels;
@@ -15,8 +16,10 @@ public static class ServiceCollectionExtensions
         // Om någon efterfrågar interface IProductService så ger
         // vi dem en instans av KalleAnka objektet...
         collection.AddSingleton<MainWindowViewModel>();
+        collection.AddSingleton<PageViewFactory>();
         collection.AddTransient<HomeViewModel>();
         collection.AddTransient<ProductsViewModel>();
+        collection.AddTransient<CustomersViewModel>();
         collection.AddTransient<IProductService, ProductServices>();
     }
 }

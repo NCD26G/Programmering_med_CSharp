@@ -33,6 +33,12 @@
                             <Label Content="Produkter" />
                         </StackPanel>
                     </Button>
+                    <Button Command="{Binding GoToCustomersCommand}" >
+                        <StackPanel Orientation="Horizontal" Spacing="10">
+                            <Label Padding="0 6" FontFamily="{DynamicResource IconFont}" Content="&#xed60;" />
+                            <Label Content="Kunder" />
+                        </StackPanel>
+                    </Button>
                 </StackPanel>
                 <Button
                     Grid.Row="1"
