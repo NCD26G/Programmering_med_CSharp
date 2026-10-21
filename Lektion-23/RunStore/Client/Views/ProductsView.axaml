@@ -3,7 +3,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="using:Client.ViewModels"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="600"
              x:Class="Client.Views.ProductsView"
              x:DataType="vm:ProductsViewModel">
 
@@ -13,6 +13,13 @@
 
   <StackPanel>
     <TextBlock Classes="pageTitle" Text="Våra produkter"/>
+
+    <Button Command="{Binding $parent[Window].((vm:MainWindowViewModel)DataContext).GoToAddProductCommand}">
+      <StackPanel Orientation="Horizontal">
+        <Label FontFamily="{DynamicResource IconFont}" Content="&#xe3d4;" Padding="0 5 5 0"/>
+        <Label Content="Lägg till produkt"/>
+      </StackPanel>
+    </Button>
 
     <Border BorderBrush="White" BorderThickness="0 0 0 1" Padding="0 50 0 5">
       <Grid ColumnDefinitions="100,200,200,*,60,60" ShowGridLines="False">

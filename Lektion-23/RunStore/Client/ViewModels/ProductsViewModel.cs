@@ -16,6 +16,12 @@ public partial class ProductsViewModel : ViewModelBase
     [ObservableProperty]
     public partial ObservableCollection<Product> Products { get; set; } = [];
 
+    public ProductsViewModel()
+    {
+        _productService = new ProductServices();
+        PageTitle = "Våra produkter";
+        Init();
+    }
     public ProductsViewModel(IProductService productService)
     {
         _productService = productService;

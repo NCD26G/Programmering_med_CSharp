@@ -1,4 +1,5 @@
-﻿using Client.Factories;
+﻿using System;
+using Client.Factories;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 
@@ -23,4 +24,9 @@ public partial class MainWindowViewModel : ViewModelBase
     private void GoToProducts() => CurrentView = _pageViewFactory.LoadPageViewModel(Enums.PageViewsEnum.Products);
     [RelayCommand]
     private void GoToCustomers() => CurrentView = _pageViewFactory.LoadPageViewModel(Enums.PageViewsEnum.Customers);
+    [RelayCommand]
+    private void GoToAddProduct()
+    {
+        Console.WriteLine("Lägg till ny produkt");
+    }
 }
