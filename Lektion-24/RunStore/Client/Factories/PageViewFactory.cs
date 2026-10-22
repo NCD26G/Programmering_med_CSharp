@@ -19,4 +19,13 @@ public class PageViewFactory : IPageViewFactory
             _ => throw new InvalidOperationException("Det fanns inte det du ville ha"),
         };
     }
+
+    public ViewModelBase LoadPageViewModel(PageViewsEnum page, string itemNumber)
+    {
+        return page switch
+        {
+            PageViewsEnum.EditProduct => new EditProductViewModel(new ProductServices(), itemNumber),
+            _ => throw new InvalidOperationException("Det fanns inte det du ville ha")
+        };
+    }
 }

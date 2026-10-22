@@ -26,4 +26,6 @@ public partial class MainWindowViewModel : ViewModelBase
     private void GoToCustomers() => CurrentView = _pageViewFactory.LoadPageViewModel(Enums.PageViewsEnum.Customers);
     [RelayCommand]
     private void GoToAddProduct() => CurrentView = _pageViewFactory.LoadPageViewModel(Enums.PageViewsEnum.AddProduct);
+    [RelayCommand]
+    private void GoToEditProduct(string itemNumber) => CurrentView = _pageViewFactory.LoadPageViewModel(Enums.PageViewsEnum.EditProduct, itemNumber);
 }

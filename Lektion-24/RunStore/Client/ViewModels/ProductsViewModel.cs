@@ -32,12 +32,6 @@ public partial class ProductsViewModel : ViewModelBase
     }
 
     [RelayCommand]
-    private void Edit(string id)
-    {
-        Console.WriteLine("Ändra uppgifter, " + id);
-    }
-
-    [RelayCommand]
     private void Delete(string id)
     {
         Console.WriteLine("Ta bort produkt, " + id);

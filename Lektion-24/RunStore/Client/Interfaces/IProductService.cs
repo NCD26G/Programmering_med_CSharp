@@ -8,4 +8,5 @@ public interface IProductService
 {
     Task<List<Product>> List();
     Task Add(Product product);
+    Task<Product> Find(string itemNumber);
 }
