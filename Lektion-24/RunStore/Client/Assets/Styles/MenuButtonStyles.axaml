@@ -1,0 +1,45 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Design.PreviewWith>
+    <Border Padding="20" Background="{DynamicResource PrimaryBackgroundGradient}">
+
+      <Button Classes="form">
+        <StackPanel Orientation="Horizontal">
+          <Label Padding="0 5" FontFamily="{DynamicResource IconFont}" Content="&#xe2c2;" />
+          <Label FontSize="20" Content="Knapp"/>
+        </StackPanel>
+      </Button>
+
+    </Border>
+  </Design.PreviewWith>
+
+  <!-- Add Styles Here -->
+  <Style Selector="Button">
+    <Setter Property="Foreground" Value="{DynamicResource PrimaryTextColor}" />
+    <Setter Property="Background" Value="{DynamicResource PrimaryBackgroundColor}" />
+    <Setter Property="FontSize" Value="20"/>
+    <Setter Property="Padding" Value="15 10"/>
+    <Setter Property="HorizontalAlignment" Value="Stretch"/>
+  </Style>
+
+  <Style Selector="Button.form">
+    <Setter Property="Foreground" Value="{DynamicResource PrimaryTextColor}" />
+    <Setter Property="Background" Value="{DynamicResource PrimaryBackgroundColor}" />
+    <Setter Property="FontSize" Value="10"/>
+    <Setter Property="Padding" Value="30 15"/>
+    <Setter Property="HorizontalAlignment" Value="Stretch"/>
+    <Setter Property="HorizontalContentAlignment" Value="Center" />
+    <Setter Property="MinWidth" Value="300" />
+    <Setter Property="BorderBrush" Value="Blue" />
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="CornerRadius" Value="50" />
+  </Style>
+
+  <Style Selector="Button.form:pointerover /template/ ContentPresenter">
+    <Setter Property="Background" Value="#060681"/>
+    <Setter Property="Foreground" Value="{DynamicResource PrimaryTextColor}"/>
+    <Setter Property="BorderBrush" Value="#4472F2" />
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="FontWeight" Value="SemiBold"/>
+  </Style>
+</Styles>
