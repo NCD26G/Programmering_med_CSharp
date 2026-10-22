@@ -26,10 +26,10 @@
     <Setter Property="Foreground" Value="{DynamicResource PrimaryTextColor}" />
     <Setter Property="Background" Value="{DynamicResource PrimaryBackgroundColor}" />
     <Setter Property="FontSize" Value="10"/>
-    <Setter Property="Padding" Value="30 15"/>
+    <Setter Property="Padding" Value="30 7"/>
     <Setter Property="HorizontalAlignment" Value="Stretch"/>
     <Setter Property="HorizontalContentAlignment" Value="Center" />
-    <Setter Property="MinWidth" Value="300" />
+    <Setter Property="MinWidth" Value="250" />
     <Setter Property="BorderBrush" Value="Blue" />
     <Setter Property="BorderThickness" Value="1" />
     <Setter Property="CornerRadius" Value="50" />
