@@ -6,7 +6,9 @@ namespace Client.Interfaces;
 
 public interface IProductService
 {
-    Task<List<Product>> List();
     Task Add(Product product);
-    Task<Product> Find(string itemNumber);
+    Task Delete(string id);
+    Task<ProductRestDb> Find(string itemNumber);
+    Task<List<Product>> List();
+    Task Update(Product product, string _objectId);
 }

@@ -51,7 +51,7 @@ public partial class AddProductViewModel : ViewModelBase
             Price = Price
         };
 
-        // await _productService.Add(product);
+        await _productService.Add(product);
 
         ClearData();
     }

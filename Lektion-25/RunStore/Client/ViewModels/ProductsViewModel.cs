@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Diagnostics.CodeAnalysis;
 using System.Threading.Tasks;
 using Client.Interfaces;
 using Client.Models;
@@ -32,9 +33,21 @@ public partial class ProductsViewModel : ViewModelBase
     }
 
     [RelayCommand]
-    private void Delete(string id)
+    private async Task Delete(string id)
     {
-        Console.WriteLine("Ta bort produkt, " + id);
+        try
+        {
+            ProductRestDb product = await _productService.Find(id);
+            if (product is not null)
+            {
+                await _productService.Delete(product._id);
+                await LoadProducts();
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.Write(ex.Message);
+        }
     }
 
     private async void Init()

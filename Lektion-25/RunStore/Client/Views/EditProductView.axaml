@@ -13,7 +13,7 @@
 
   <StackPanel>
     <TextBlock Classes="pageTitle" Text="{Binding PageTitle}" />
-    <Border HorizontalAlignment="Center" VerticalAlignment="Center" BorderBrush="white" BorderThickness="1" Padding="0 30">
+    <Border HorizontalAlignment="Center" VerticalAlignment="Center" BorderBrush="white" BorderThickness="0" Padding="0 30">
       <!-- Huvud panelen  -->
       <StackPanel>
         <!-- Panel för inmatning samt bild -->
@@ -23,17 +23,36 @@
             ColumnSpacing="10"
             ColumnDefinitions="200,*"
             RowDefinitions="Auto,Auto,Auto,Auto"
-            ShowGridLines="True">
+            ShowGridLines="False">
 
             <Label Classes="form" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right" Content="Artikelnr" />
             <Label Classes="form" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" Content="Produktnamn" />
             <Label Classes="form" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right" Content="Leverantör" />
             <Label Classes="form" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Right" Content="Pris" />
 
+            <TextBox Classes="form" Text="{Binding ItemNumber}" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" />
+            <TextBox Classes="form" Text="{Binding ProductName}" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" />
+            <TextBox Classes="form" Text="{Binding Supplier}" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" />
+            <TextBox Classes="form" Text="{Binding Price}" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" />
           </Grid>
           <Border BorderBrush="white" BorderThickness="1" Padding="5">
-            <Image MaxWidth="200" Width="200" />
+            <Image Source="{Binding Image}" MaxWidth="200" Width="200" />
           </Border>
+        </StackPanel>
+        <!-- Här kommer knapparna för att spara och avbryta hamna -->
+        <StackPanel Spacing="20" Margin="0 30 0 0" Orientation="Horizontal" HorizontalAlignment="Center">
+          <Button Classes="form" Command="{Binding SaveCommand}">
+            <StackPanel Orientation="Horizontal">
+              <Label Padding="5" FontFamily="{DynamicResource IconFont}" Content="&#xe248;" />
+              <Label Content="Spara" />
+            </StackPanel>
+          </Button>
+          <Button Classes="form">
+            <StackPanel Orientation="Horizontal">
+              <Label Padding="5" FontFamily="{DynamicResource IconFont}" Content="&#xe08a;" />
+              <Label Content="Avbryt" />
+            </StackPanel>
+          </Button>
         </StackPanel>
       </StackPanel>
     </Border>
