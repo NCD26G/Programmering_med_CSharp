@@ -47,5 +47,20 @@
         </ItemsControl.ItemTemplate>
       </ItemsControl>
     </ScrollViewer>
+
+    <Popup IsOpen="{Binding ShowDialog}" Placement="Center">
+      <Border Padding="30" Background="Orange" BorderBrush="White" BorderThickness="2">
+        <StackPanel>
+          <StackPanel Spacing="20">
+            <TextBlock Padding="20" Text="Är du säker på att du vill ta bort produkten?" Foreground="White" FontSize="30" />
+          </StackPanel>
+          <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Command="{Binding ConfirmCommand}">Ja</Button>
+            <Button Command="{Binding CancelCommand}">Nej</Button>
+          </StackPanel>
+        </StackPanel>
+      </Border>
+    </Popup>
+
   </StackPanel>
 </UserControl>

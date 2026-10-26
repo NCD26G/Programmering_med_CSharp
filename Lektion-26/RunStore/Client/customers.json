@@ -1,0 +1,40 @@
+{
+    "firstName": "Michael",
+        "lastName": "Gustavsson",
+        "email": "michael@mail.com",
+        "addresses":[
+            {
+                "addressType": "Billing",
+                "addressLine": "Gatan 24",
+                "postalCode": "123 45",
+                "city": "Staden"
+            },
+            {
+                "addressType": "Shipping",
+                "addressLine": "Gatan 24",
+                "postalCode": "123 45",
+                "city": "Staden"
+            }
+        ],
+        "orders":[
+            {
+                "orderNumber":10000,
+                "orderDate": "2026-10-26",
+                "products":[
+                    {
+                        "itemNumber": "1000",
+                        "productName": "Gel 27",
+                        "price": 1995,
+                        "quantity": 1
+                    },
+                    {
+                        "itemNumber": "1009",
+                        "productName": "T-Shirt black",
+                        "price": 795,
+                        "quantity": 2
+                    }
+                ],
+                "totalSum": 5000
+            }
+    ]
+}

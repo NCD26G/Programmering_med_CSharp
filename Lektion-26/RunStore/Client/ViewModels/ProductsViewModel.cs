@@ -15,6 +15,9 @@ public partial class ProductsViewModel : ViewModelBase
     private readonly IProductService _productService;
 
     [ObservableProperty]
+    public partial bool ShowDialog { get; set; }
+
+    [ObservableProperty]
     public partial ObservableCollection<Product> Products { get; set; } = [];
 
     public ProductsViewModel()
@@ -37,17 +40,32 @@ public partial class ProductsViewModel : ViewModelBase
     {
         try
         {
-            ProductRestDb product = await _productService.Find(id);
-            if (product is not null)
-            {
-                await _productService.Delete(product._id);
-                await LoadProducts();
-            }
+            ShowDialog = true;
+            // ProductRestDb product = await _productService.Find(id);
+            // if (product is not null)
+            // {
+            //     await _productService.Delete(product._id);
+            //     await LoadProducts();
+            // }
         }
         catch (Exception ex)
         {
             Console.Write(ex.Message);
         }
+    }
+
+    [RelayCommand]
+    private void Confirm()
+    {
+        Console.WriteLine("Tar bort produkten");
+        ShowDialog = false;
+    }
+
+    [RelayCommand]
+    private void Cancel()
+    {
+        Console.WriteLine("Jasååå, du ångrar dig, fegis!");
+        ShowDialog = false;
     }
 
     private async void Init()
