@@ -17,6 +17,8 @@
     </PackageReference>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.2" />
     <AvaloniaResource Include="Assets\**\*" />
+    <AvaloniaXaml Remove="Assets/Resources/AppResources.axaml" />
+    <AvaloniaXaml Remove="Assets/Styles/LabelStyles.axaml" />
     <AvaloniaXaml Remove="Assets/Styles/MenuButtonStyles.axaml" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="10.0.14" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.12" />
