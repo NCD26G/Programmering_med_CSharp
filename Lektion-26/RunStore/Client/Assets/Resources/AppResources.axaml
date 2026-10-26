@@ -2,15 +2,15 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <!-- Add Resources Here -->
 
-  <SolidColorBrush x:Key="PrimaryTextColor">#EAE8E8</SolidColorBrush>
-  <SolidColorBrush x:Key="PrimaryBackgroundColor">#04041F</SolidColorBrush>
+  <SolidColorBrush x:Key="ForegroundColor" Color="{DynamicResource PrimaryForegroundColor}" />
+  <SolidColorBrush x:Key="BackgroundColor" Color="{DynamicResource PrimaryBackgroundColor}" />
+  <SolidColorBrush x:Key="Danger" Color="{DynamicResource DangerColor}" />
 
   <LinearGradientBrush x:Key="PrimaryBackgroundGradient" StartPoint="0% 0%" EndPoint="100% 0%">
     <GradientStop Offset="0" Color="#04041F"/>
     <GradientStop Offset="1" Color="#151E3E"/>
   </LinearGradientBrush>
 
-  <FontFamily x:Key="MontserratFont">avares://Client/Assets/Fonts#Montserrat</FontFamily>
-  <FontFamily x:Key="IconFont">avares://Client/Assets/Fonts/Phosphor.ttf#Phosphor</FontFamily>
+
 
 </ResourceDictionary>

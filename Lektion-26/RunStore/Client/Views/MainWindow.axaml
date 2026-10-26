@@ -13,13 +13,13 @@
         <vm:MainWindowViewModel></vm:MainWindowViewModel>
     </Design.DataContext>
 
-    <Grid ColumnDefinitions="Auto,*" Background="{DynamicResource PrimaryBackgroundColor}">
+    <Grid ColumnDefinitions="Auto,*" Background="{DynamicResource BackgroundColor}">
         <Border Padding="10" Background="{DynamicResource PrimaryBackgroundGradient}">
             <Grid RowDefinitions="*,Auto">
                 <StackPanel Grid.Row="0" Spacing="10">
                     <StackPanel Orientation="Horizontal" Spacing="20">
                         <Svg Width="60" Path="/Assets/Images/runstore.svg"></Svg>
-                        <TextBlock VerticalAlignment="Center" Text="RunStore" FontSize="20" Foreground="{DynamicResource PrimaryTextColor}" />
+                        <TextBlock VerticalAlignment="Center" Text="RunStore" FontSize="20" Foreground="{DynamicResource ForegroundColor}" />
                     </StackPanel>
                     <Button Command="{Binding GoToHomeCommand}" >
                         <StackPanel Orientation="Horizontal" Spacing="10

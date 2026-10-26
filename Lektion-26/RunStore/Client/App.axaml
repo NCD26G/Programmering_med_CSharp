@@ -12,13 +12,18 @@
     <Application.Styles>
         <FluentTheme />
         <StyleInclude Source="Assets/Styles/LabelStyles.axaml"></StyleInclude>
+        <StyleInclude Source="Assets/Styles/TextBlockStyles.axaml"></StyleInclude>
+        <StyleInclude Source="Assets/Styles/TextBoxStyles.axaml"></StyleInclude>
         <StyleInclude Source="Assets/Styles/AppStyles.axaml"></StyleInclude>
         <StyleInclude Source="Assets/Styles/MenuButtonStyles.axaml"></StyleInclude>
     </Application.Styles>
 
     <Application.Resources>
         <ResourceDictionary>
+            <FontFamily x:Key="MontserratFont">avares://Client/Assets/Fonts#Montserrat</FontFamily>
+            <FontFamily x:Key="IconFont">avares://Client/Assets/Fonts/Phosphor.ttf#Phosphor</FontFamily>
             <ResourceDictionary.MergedDictionaries>
+                <ResourceInclude Source="/Assets/Resources/ColorsResources.axaml"/>
                 <ResourceInclude Source="/Assets/Resources/AppResources.axaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>

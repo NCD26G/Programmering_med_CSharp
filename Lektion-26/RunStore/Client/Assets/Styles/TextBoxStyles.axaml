@@ -1,0 +1,28 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Design.PreviewWith>
+    <Border Padding="20">
+      <StackPanel Spacing="10">
+        <TextBox/>
+        <TextBox Classes="form"/>
+      </StackPanel>
+    </Border>
+  </Design.PreviewWith>
+
+  <Style Selector="TextBox">
+    <Setter Property="MaxWidth" Value="300" />
+    <Setter Property="MinWidth" Value="300" />
+    <Setter Property="Background" Value="Black" />
+    <Setter Property="BorderBrush" Value="Blue" />
+    <Setter Property="BorderThickness" Value="1" />
+  </Style>
+
+  <Style Selector="TextBox.form">
+    <Setter Property="MaxWidth" Value="300" />
+    <Setter Property="MinWidth" Value="300" />
+    <Setter Property="Background" Value="Orange" />
+    <Setter Property="BorderBrush" Value="Blue" />
+    <Setter Property="BorderThickness" Value="2" />
+    <Setter Property="CornerRadius" Value="50"/>
+  </Style>
+</Styles>

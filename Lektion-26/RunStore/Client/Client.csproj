@@ -18,8 +18,10 @@
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.2" />
     <AvaloniaResource Include="Assets\**\*" />
     <AvaloniaXaml Remove="Assets/Resources/AppResources.axaml" />
+    <AvaloniaXaml Remove="Assets/Resources/ColorsResources.axaml" />
     <AvaloniaXaml Remove="Assets/Styles/LabelStyles.axaml" />
     <AvaloniaXaml Remove="Assets/Styles/MenuButtonStyles.axaml" />
+    <AvaloniaXaml Remove="Assets/Styles/TextBoxStyles.axaml" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="10.0.14" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.12" />
     <PackageReference Include="Svg.Controls.Skia.Avalonia" Version="12.0.0.17" />
