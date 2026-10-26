@@ -1,0 +1,48 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:Client.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Client.Views.AddProductView"
+             x:DataType="vm:AddProductViewModel">
+
+  <Design.DataContext>
+    <vm:AddProductViewModel></vm:AddProductViewModel>
+  </Design.DataContext>
+
+  <StackPanel>
+    <TextBlock Classes="pageTitle" Text="{Binding PageTitle}" />
+
+    <Border HorizontalAlignment="Center" Padding="0 30" BorderBrush="White" BorderThickness="0">
+      <StackPanel>
+        <Grid RowSpacing="10" ColumnSpacing="10" ColumnDefinitions="200,*" RowDefinitions="Auto,Auto,Auto,Auto" ShowGridLines="False">
+          <Label Classes="form" HorizontalAlignment="Right" Content="Artikelnr"/>
+          <Label Classes="form" Grid.Row="1" HorizontalAlignment="Right" Content="Namn"/>
+          <Label Classes="form" Grid.Row="2" HorizontalAlignment="Right" Content="Leverantör"/>
+          <Label Classes="form" Grid.Row="3" HorizontalAlignment="Right" Content="Pris"/>
+          <TextBox Text="{Binding ItemNumber}" Grid.Column="1" HorizontalAlignment="Left" />
+          <TextBox Text="{Binding ProductName}" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" />
+          <TextBox Text="{Binding Supplier}" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" />
+          <TextBox Text="{Binding Price}" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" />
+        </Grid>
+        <StackPanel Spacing="20" Margin="0 30 0 0" Orientation="Horizontal" HorizontalAlignment="Center">
+          <Button Classes="form" Command="{Binding SaveCommand}">
+            <StackPanel Orientation="Horizontal">
+              <Label Padding="5" FontFamily="{DynamicResource IconFont}" Content="&#xe248;" />
+              <Label Content="Spara" />
+            </StackPanel>
+          </Button>
+          <Button Classes="form" Command="{Binding $parent[Window].((vm:MainWindowViewModel)DataContext).GoToProductsCommand}">
+            <StackPanel Orientation="Horizontal">
+              <Label Padding="5" FontFamily="{DynamicResource IconFont}" Content="&#xe08a;" />
+              <Label Content="Avbryt" />
+            </StackPanel>
+          </Button>
+        </StackPanel>
+      </StackPanel>
+    </Border>
+
+  </StackPanel>
+
+</UserControl>
