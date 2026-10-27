@@ -1,0 +1,85 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Design.PreviewWith>
+    <Border Padding="20" Background="{DynamicResource PrimaryBackgroundGradient}">
+      <StackPanel Spacing="20">
+        <Button>
+          <StackPanel Orientation="Horizontal">
+            <Label Padding="0 5" FontFamily="{DynamicResource IconFont}" Content="&#xe2c2;" />
+            <Label FontSize="20" Content="Knapp"/>
+          </StackPanel>
+        </Button>
+
+        <Button Classes="form">
+          <StackPanel Orientation="Horizontal">
+            <Label Padding="0 5" FontFamily="{DynamicResource IconFont}" Content="&#xe2c2;" />
+            <Label FontSize="20" Content="Knapp"/>
+          </StackPanel>
+        </Button>
+
+        <Button Classes="marko">
+          <StackPanel Orientation="Horizontal">
+            <Label Padding="0 5" FontFamily="{DynamicResource IconFont}" Content="&#xe2c2;" />
+            <Label FontSize="20" Content="Knapp"/>
+          </StackPanel>
+        </Button>
+
+        <Button Classes="danger">
+          <StackPanel Orientation="Horizontal">
+            <Label Padding="0 5" FontFamily="{DynamicResource IconFont}" Content="&#xe4a6;" />
+            <Label FontSize="20" Content="Knapp"/>
+          </StackPanel>
+        </Button>
+      </StackPanel>
+    </Border>
+  </Design.PreviewWith>
+
+  <!-- Add Styles Here -->
+  <Style Selector="Button">
+    <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
+    <Setter Property="Background" Value="{DynamicResource BackgroundColor}" />
+    <Setter Property="FontSize" Value="20"/>
+    <Setter Property="Padding" Value="15 10"/>
+    <Setter Property="HorizontalAlignment" Value="Stretch"/>
+  </Style>
+
+  <Style Selector="Button.marko">
+    <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
+    <Setter Property="Background" Value="{DynamicResource BackgroundColor}" />
+    <Setter Property="FontSize" Value="40"/>
+    <Setter Property="Padding" Value="15 10"/>
+    <Setter Property="HorizontalAlignment" Value="Stretch"/>
+    <Setter Property="BorderBrush" Value="{DynamicResource ForegroundColor}"/>
+    <Setter Property="BorderThickness" Value="3"/>
+    <Setter Property="CornerRadius" Value="50"/>
+  </Style>
+
+  <Style Selector="Button.form">
+    <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
+    <Setter Property="Background" Value="{DynamicResource BackgroundColor}" />
+    <Setter Property="FontSize" Value="10"/>
+    <Setter Property="Padding" Value="30 7"/>
+    <Setter Property="HorizontalAlignment" Value="Stretch"/>
+    <Setter Property="HorizontalContentAlignment" Value="Center" />
+    <Setter Property="MinWidth" Value="250" />
+    <Setter Property="BorderBrush" Value="Blue" />
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="CornerRadius" Value="50" />
+  </Style>
+
+  <Style Selector="Button.form:pointerover /template/ ContentPresenter">
+    <Setter Property="Background" Value="#060681"/>
+    <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}"/>
+    <Setter Property="BorderBrush" Value="#4472F2" />
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="FontWeight" Value="SemiBold"/>
+  </Style>
+
+  <Style Selector="Button.danger">
+    <Setter Property="Foreground" Value="{DynamicResource Danger}" />
+    <Setter Property="Background" Value="{DynamicResource BackgroundColor}" />
+    <Setter Property="FontSize" Value="20"/>
+    <Setter Property="Padding" Value="15 10"/>
+    <Setter Property="HorizontalAlignment" Value="Stretch"/>
+  </Style>
+</Styles>

@@ -1,0 +1,66 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:Client.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="600"
+             x:Class="Client.Views.ProductsView"
+             x:DataType="vm:ProductsViewModel">
+
+  <Design.DataContext>
+    <vm:ProductsViewModel></vm:ProductsViewModel>
+  </Design.DataContext>
+
+  <StackPanel>
+    <TextBlock Classes="pageTitle" Text="Våra produkter"/>
+
+    <Button HorizontalAlignment="Left" Classes="form" MaxWidth="300" Command="{Binding $parent[Window].((vm:MainWindowViewModel)DataContext).GoToAddProductCommand}">
+      <StackPanel Orientation="Horizontal">
+        <Label FontFamily="{DynamicResource IconFont}" Content="&#xe3d4;" Padding="0 5 5 0"/>
+        <Label Content="Lägg till produkt"/>
+      </StackPanel>
+    </Button>
+
+    <Border BorderBrush="White" BorderThickness="0 0 0 1" Padding="0 50 0 5">
+      <Grid ColumnDefinitions="100,300,200,*,60,60" ShowGridLines="False">
+        <Label Content="Artikelnr" />
+        <Label Grid.Column="1" Content="Namn" />
+        <Label Grid.Column="2" Content="Leverantör" />
+        <Label Grid.Column="3" Content="Pris" HorizontalAlignment="Right" />
+        <Label Grid.Column="4"/>
+        <Label Grid.Column="5"/>
+      </Grid>
+    </Border>
+    <ScrollViewer Height="400">
+      <ItemsControl ItemsSource="{Binding Products}" Margin="0 10 0 0">
+        <ItemsControl.ItemTemplate>
+          <DataTemplate>
+            <Grid ColumnDefinitions="100,300,200,*,60,60" ShowGridLines="False">
+              <Label Content="{Binding ItemNumber}" />
+              <Label Grid.Column="1" Content="{Binding Name}" />
+              <Label Grid.Column="2" Content="{Binding SupplierName}" />
+              <Label Grid.Column="3" Content="{Binding Price}" HorizontalAlignment="Right" />
+              <Button Grid.Column="4" Command="{Binding $parent[Window].((vm:MainWindowViewModel)DataContext).GoToEditProductCommand}" CommandParameter="{Binding ItemNumber}" FontFamily="{DynamicResource IconFont}" Content="&#xebc6;" Foreground="Green" Padding="10 5 0 10"></Button>
+              <Button Classes="danger" Grid.Column="5" Command="{Binding $parent[UserControl].DataContext.DeleteCommand}" CommandParameter="{Binding ItemNumber}" FontFamily="{DynamicResource IconFont}" Content="&#xe4a6;" Padding="10 5 0 10"></Button>
+            </Grid>
+          </DataTemplate>
+        </ItemsControl.ItemTemplate>
+      </ItemsControl>
+    </ScrollViewer>
+
+    <Popup IsOpen="{Binding ShowDialog}" Placement="Center">
+      <Border Padding="30" Background="Orange" BorderBrush="White" BorderThickness="2">
+        <StackPanel>
+          <StackPanel Spacing="20">
+            <TextBlock Padding="20" Text="Är du säker på att du vill ta bort produkten?" Foreground="White" FontSize="30" />
+          </StackPanel>
+          <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Command="{Binding ConfirmCommand}">Ja</Button>
+            <Button Command="{Binding CancelCommand}">Nej</Button>
+          </StackPanel>
+        </StackPanel>
+      </Border>
+    </Popup>
+
+  </StackPanel>
+</UserControl>
