@@ -11,8 +11,8 @@ namespace Client.ViewModels;
 
 public partial class EditProductViewModel : ViewModelBase
 {
-    private readonly IProductService _productService;
-    private readonly string _itemNumber = string.Empty;
+    private readonly IProductService? _productService;
+    private string _itemNumber = string.Empty;
     private string _imageUrl = string.Empty;
     private string _objectId = string.Empty;
 
@@ -27,35 +27,23 @@ public partial class EditProductViewModel : ViewModelBase
     [ObservableProperty]
     public partial Bitmap? Image { get; set; } = null;
 
-    public EditProductViewModel()
-    {
-        _productService = new ProductServices();
-        PageTitle = "Uppdatera produkt: ";
-    }
-    public EditProductViewModel(string itemNumber)
-    {
-        _productService = new ProductServices();
-        PageTitle = "Uppdatera produkt: " + itemNumber;
-        _itemNumber = itemNumber;
-        Init();
-    }
+    public EditProductViewModel() { }
 
-    public EditProductViewModel(IProductService productService, string itemNumber)
+    public EditProductViewModel(IProductService productService)
     {
         _productService = productService;
-        PageTitle = "Uppdatera produkt: " + itemNumber;
-        _itemNumber = itemNumber;
-        Init();
+        PageTitle = "Uppdatera produkt";
     }
 
-    private async void Init()
+    public async void Init(string itemNumber)
     {
+        _itemNumber = itemNumber;
         await GetProduct();
     }
 
     private async Task GetProduct()
     {
-        var product = await _productService.Find(_itemNumber);
+        var product = await _productService!.Find(_itemNumber);
 
         _objectId = product._id;
 
@@ -83,6 +71,6 @@ public partial class EditProductViewModel : ViewModelBase
             Price = Price
         };
 
-        await _productService.Update(product, _objectId);
+        await _productService!.Update(product, _objectId);
     }
 }

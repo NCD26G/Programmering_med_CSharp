@@ -12,7 +12,9 @@ namespace Client.ViewModels;
 
 public partial class ProductsViewModel : ViewModelBase
 {
-    private readonly IProductService _productService;
+    private readonly IProductService? _productService;
+    private readonly MainWindowViewModel? _mainWindowViewModel;
+    private string _productId = string.Empty;
 
     [ObservableProperty]
     public partial bool ShowDialog { get; set; }
@@ -22,16 +24,14 @@ public partial class ProductsViewModel : ViewModelBase
 
     public ProductsViewModel()
     {
-        _productService = new ProductServices();
         PageTitle = "Våra produkter";
-        Init();
     }
-    public ProductsViewModel(IProductService productService)
+    public ProductsViewModel(IProductService productService, MainWindowViewModel mainWindowViewModel)
     {
         _productService = productService;
+        _mainWindowViewModel = mainWindowViewModel;
         PageTitle = "Våra produkter";
 
-        // Task.Run(()=> LoadProducts()).Wait();
         Init();
     }
 
@@ -40,13 +40,9 @@ public partial class ProductsViewModel : ViewModelBase
     {
         try
         {
+            _productId = id;
+            _mainWindowViewModel!.IsBusy = true;
             ShowDialog = true;
-            // ProductRestDb product = await _productService.Find(id);
-            // if (product is not null)
-            // {
-            //     await _productService.Delete(product._id);
-            //     await LoadProducts();
-            // }
         }
         catch (Exception ex)
         {
@@ -55,10 +51,17 @@ public partial class ProductsViewModel : ViewModelBase
     }
 
     [RelayCommand]
-    private void Confirm()
+    private async Task Confirm()
     {
-        Console.WriteLine("Tar bort produkten");
         ShowDialog = false;
+        ProductRestDb product = await _productService!.Find(_productId);
+        if (product is not null)
+        {
+            await _productService!.Delete(product._id);
+            await LoadProducts();
+        }
+
+        _mainWindowViewModel!.IsBusy = false;
     }
 
     [RelayCommand]
@@ -66,6 +69,7 @@ public partial class ProductsViewModel : ViewModelBase
     {
         Console.WriteLine("Jasååå, du ångrar dig, fegis!");
         ShowDialog = false;
+        _mainWindowViewModel!.IsBusy = false;
     }
 
     private async void Init()
@@ -77,7 +81,7 @@ public partial class ProductsViewModel : ViewModelBase
     {
         try
         {
-            Products = new ObservableCollection<Product>(await _productService.List());
+            Products = new ObservableCollection<Product>(await _productService!.List());
         }
         catch (Exception ex)
         {
