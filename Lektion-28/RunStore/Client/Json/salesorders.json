@@ -1,0 +1,44 @@
+[
+  {
+    "orderId": "cc506b70c0824a2b86e3f3a78e4790c1",
+    "orderDate": "2026-10-27T20:31:09.669137+01:00",
+    "customer": {
+      "id": "595fc98a-7db0-40a6-b42d-09c97e42d6c3",
+      "firstName": "Michael",
+      "lastName": "Gustavsson",
+      "email": "michael@mail.com",
+      "phone": null,
+      "addressLine": null,
+      "postalCode": null,
+      "city": null
+    },
+    "items": [
+      {
+        "product": {
+          "id": "65ebc722-7b3b-465b-a652-6e2e4adc737a",
+          "description": null,
+          "imageUrl": null,
+          "itemNumber": "1000",
+          "name": "Gel 27",
+          "supplierName": "Asics",
+          "price": 1295
+        },
+        "quantity": 1,
+        "lineSum": 1295
+      },
+      {
+        "product": {
+          "id": "b770f5f2-8eb7-4451-9e8f-957ad82558a9",
+          "description": null,
+          "imageUrl": null,
+          "itemNumber": "1001",
+          "name": "Kompressions strumpor",
+          "supplierName": "Puma",
+          "price": 295
+        },
+        "quantity": 2,
+        "lineSum": 590
+      }
+    ]
+  }
+]
